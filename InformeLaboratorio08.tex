@@ -1,1 +1,352 @@
+\documentclass[journal]{IEEEtran}
+\ifCLASSINFOpdf
+\else
+\fi
+\hyphenation{op-tical net-works semi-conduc-tor}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{amsmath} 
 
+\begin{document}
+\title{Amplificadores basados en FET y circuitos de conmutación}
+\author{Guido P. Krisdel Pamela, Gamboa Q. María José} 
+
+\markboth{ITCR. Escuela de Ingeniería Electrónica. Laboratorio 8 – Amplificadores basados en JFET y circuitos de conmutación}
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for IEEE Journals}
+
+\maketitle
+\renewcommand{\abstractname}{Resumen}
+\begin{abstract}
+En este informe se estudia el comportamiento de amplificadores con transistores JFET, específicamente en configuraciones de fuente común y drenador común. Se construyeron y analizaron ambos circuitos, evaluando sus parámetros en corriente continua (DC) y corriente alterna (CA), incluyendo ganancia de tensión, desfase entre señales de entrada y salida, y la respuesta ante fallas comunes. Además, se observó el efecto de la variación en la resistencia de carga y el uso de una fuente de corriente en la mejora de la ganancia del amplificador. Los resultados permiten comprender el funcionamiento, limitaciones y ventajas de estas configuraciones en aplicaciones electrónicas donde se requiere amplificación de señales pequeñas.
+\end{abstract}
+
+\renewcommand{\IEEEkeywordsname}{Palabras clave}
+\begin{IEEEkeywords}
+amplificador JFET, fuente común, drenador común, ganancia de tensión
+\end{IEEEkeywords}
+
+\IEEEpeerreviewmaketitle
+
+\section{Introduction}
+
+\IEEEPARstart{L}{os}
+amplificadores utilizando transistores JFET son fundamentales en el diseño de circuitos electrónicos debido a su alta impedancia de entrada y bajo consumo de potencia. Entre las configuraciones más comunes se encuentran el amplificador en fuente común y el amplificador en drenador común, cada uno con características particulares que afectan el comportamiento de la señal amplificada.
+\par El objetivo principal del experimento fue analizar el comportamiento de estas configuraciones ante distintas condiciones de operación, midiendo parámetros tanto en corriente continua como en corriente alterna. Se estudió la respuesta del circuito ante cambios en la resistencia de carga, así como los efectos de polarización mediante una fuente de corriente. Además, se evaluó la ganancia de tensión, la diferencia de fase entre la señal de entrada y salida, y la respuesta del circuito ante fallas específicas.
+\par A partir del análisis experimental, se concluye que la elección de la configuración y polarización del JFET influye directamente en el rendimiento del amplificador. Esta comprensión es esencial para el diseño de sistemas que requieren amplificación precisa y eficiente de señales en aplicaciones electrónicas variadas.
+
+\section{MATERIALES Y EQUIPO}
+Para la realización de ambas configuraciones del experimento se emplearon los siguientes equipos de medición:
+\begin{itemize}
+    \item 1 Generador de señales
+    \item 1 Osciloscopio
+    \item 1 Multímetro
+\end{itemize}
+\par Para la configuración del amplificador en fuente común se empleó los siguientes componentes electrónicos:
+\begin{itemize}
+    \item 1 Resistencia de 56 $\Omega$
+    \item 1 Resistencia de 6.8k $\Omega$
+    \item 1 Resistencia de 10k $\Omega$
+    \item 1 Resistencia de 100k $\Omega$
+    \item 1 Resistencia de 10M $\Omega$
+    \item 1 Capacitor de 0.1$\mu$ F
+    \item 1 Capacitor de 1$\mu$ F
+    \item 1 Capacitor de 10$\mu$ F
+    \item 1 Transistor JFET 2N5458 
+\end{itemize}
+\par Para la configuración del amplificador en drenador común se empleó los siguientes componentes electrónicos:
+\begin{itemize}
+    \item 1 Resistencia de 100 $\Omega$
+    \item 1 Resistencia de 1k $\Omega$
+    \item 1 Resistencia de 10k $\Omega$
+    \item 1 Resistencia de 100k $\Omega$
+    \item 1 Resistencia de 220 $\Omega$
+    \item 1 Resistencia de 1M $\Omega$
+    \item 1 Capacitor de 0.1$\mu$ F
+    \item 1 Capacitor de 10$\mu$ F
+    \item 1 Potenciómetro de 500 $\Omega$
+    \item 2 Transistores JFET 2N5458
+\end{itemize}
+
+\section{Resultados Experimentales}
+\par Se presentan los datos obtenidos durante la ejecución del experimento en la parte correspondiente al amplificador con drenador común. Se incluyen mediciones realizadas con los instrumentos de laboratorio, así como observaciones relevantes sobre el comportamiento del circuito. Además, se comparan los resultados experimentales con los valores teóricos y simulaciones para analizar la precisión de las mediciones.
+\par Para garantizar la precisión de los resultados obtenidos en el experimento, se realizó una medición previa de los valores de las resistencias y capacitores, y así, asegurar que los valores reales estuvieran dentro de la tolerancia especifica. Los valores obtenidos en la medición se presentan en la siguiente tabla:
+
+\begin{table}[h]
+    \caption{Comparación entre valores teóricos y experimentales de resistencias.}
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
+    \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        & \textbf{Valor Teórico [$\Omega$]} & \textbf{Valor Experimental [$\Omega$]} & \textbf{Porcentaje de error [\%]} \\
+        \hline
+        R1 & 100k  & 101k  & 1 \\
+        \hline
+        R2 & 1k   & 0.997k  & 0.30 \\
+        \hline
+        R3 & 10k & 9.909k & 0.91 \\
+        \hline
+        R3 & 220 &  &  \\
+        \hline
+        R3 & 1M &  &  \\
+        \hline
+    \end{tabular}
+    \label{tab:resistencias}
+\end{table}
+
+\par ....................
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+
+\par .........................
+\par ..................
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+
+\par ................ 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\par .................................
+\par ........
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\par ...................................
+\begin{table}[h]
+\caption{Comparación entre valores teóricos y experimentales de voltajes.}
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
+    \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        & \textbf{Valor Teórico [V]} & \textbf{Valor Experimental [V]} & \textbf{Porcentaje de error [\%]} \\
+        \hline
+        D1 & 0.7  & 0.698  & 0.28 \\
+        \hline
+    \end{tabular}
+    \label{tab:voltajes}
+\end{table}
+
+\par ..................................
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+
+\par .............................
+\par .............................. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+
+\par ...........................
+\par ...................................
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\par ......................
+\par .....................................
+
+\begin{equation*}
+    V_{R2}=2.921
+\end{equation*}
+
+\par ......................
+
+\begin{table}[h]
+\caption{Valor resistencia de carga modificada.}
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
+    \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        & \textbf{Valor Teórico [k$\Omega$]} & \textbf{Valor Experimental [k$\Omega$]} & \textbf{Porcentaje de error [\%]} \\
+        \hline
+        RL & 10  & 9.892  & 1.08 \\
+        \hline
+    \end{tabular}
+    
+    \label{tab:resistencia_carga}
+\end{table}
+\par ..........................
+\par .............................
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
+    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
+    \label{fig:diagrama_flujo_restador}
+\end{figure}
+
+\par .........................
+\par ........................
+
+
+\section{Conclusion}
+\par ....................................
+\par ........................
+\par .........................
+
+\appendices
+\section{}
+\noindent\textbf{Análisis del Divisor de Tensión}
+\par En los circuitos analizados, las resistencias R2 y RL conforman un divisor de tensión que influye en la señal de salida [1]. Aplicando la ecuación del divisor de tensión:
+\begin{equation}
+    V_{out}=(V_{in}\times R_L)/(R_2+\ R_L\ )
+\end{equation}
+\par Se puede calcular la tensión que se observa en la salida en función de los valores de las resistencias. En particular, la reducción de RL afecta directamente la caída de tensión y modifica la amplitud de la señal de salida [1].
+\\
+\newline
+\textbf{Deducción del Recorte de Señal por el Diodo}
+\par El diodo 1N914, cuando se encuentra en polarización directa, permite el paso de corriente y presenta una caída de tensión aproximada de 0.7V [1]. Cuando la señal de entrada cae por debajo de este umbral, el diodo se bloquea y evita el paso de corriente, recortando la señal en dicho punto [2]. Este fenómeno es clave en circuitos recortadores, donde la forma de la señal de salida es modificada significativamente por la presencia del diodo. La ecuación de la señal recortada puede expresarse como:
+\begin{equation}
+    V_{OUT}=V_{IN}-V_{D}\ \ cuando\ V_{IN}>V_{D}
+\end{equation}
+\par Lo que confirma que la amplitud máxima de la señal de salida se ve limitada por el umbral del diodo [1].
+\\
+\newline
+\textbf{Frecuencia y Período de la Señal}
+\par La frecuencia y el período son parámetros fundamentales en el análisis de señales sinusoidales como las utilizadas en este experimento [1]. La relación entre ambas magnitudes se expresa mediante la ecuación:
+\begin{equation}
+    T=1/f
+\end{equation}
+Donde:
+\begin{itemize}
+    \item T es el período de la señal en segundos [s]
+	\item  f es la frecuencia de la señal en Hertz [Hz]
+\end{itemize}
+\\
+\newline
+\par En este experimento, la señal generada tiene una frecuencia de 1kHz, lo que implica un período de:
+\begin{equation}
+    T=1/1000=1ms
+\end{equation}
+\par Esto significa que la onda completa se repite cada 1 milisegundo. 
+\\
+\newline
+\textbf{Cálculo de la Tensión en R2 mediante la Ley de Kirchhoff}
+\par Dada la onda de tensión sobre la carga y la fuente en el circuito de la Figura 6, se puede utilizar la Ley de Tensiones de Kirchhoff para obtener la tensión sobre la resistencia R2 [1]. En el circuito, las tensiones relevantes en el lazo donde está la resistencia R2 son:
+\begin{itemize}
+	\item V$_S$: Voltaje de la fuente de señal
+	\item V$_{R2}$: Voltaje en la resistencia R2
+	\item V$_Y$: Voltaje en el nodo de salida del circuito
+\end{itemize}
+\\
+\newline
+Aplicando la Ley de Kirchhoff:
+\begin{equation}
+    V_{R2}=V_S-V_Y
+\end{equation}
+Dado que:
+\begin{equation}
+    V_Y=V_{D1}-V_{RL}
+\end{equation}
+Se expresa la ecuación como:
+\begin{equation}
+    V_{R2}=V_S-(V_{D1}-V_{RL}\ )
+\end{equation}
+Sustituyendo los valores:
+\begin{equation}
+    V_{R2}=3V \ (0.7V-621.502mV\ )=2.921V
+\end{equation}
+
+
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\end{thebibliography}
+
+\begin{IEEEbiography}{Michael Shell}
+Biography text here.
+\end{IEEEbiography}
+
+\begin{IEEEbiographynophoto}{John Doe}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Jane Doe}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+\end{document}
