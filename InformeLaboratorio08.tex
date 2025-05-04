@@ -123,7 +123,7 @@ Para la realización de ambas configuraciones del experimento se emplearon los s
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Media/onda_entrada_salida.png}
-    \caption{Onda entrada vs salida .}
+    \caption{Onda entrada vs salida.}
     \label{fig:onda_entrada_salida.}
 \end{figure}
 \par Se determinó el desfase entre ambas señales y se calculó la ganancia de tensión del amplificador. Todos los valores obtenidos fueron registrados en la Tabla 3 para su análisis comparativo.
@@ -147,263 +147,146 @@ Para la realización de ambas configuraciones del experimento se emplearon los s
     \label{tab:resistencias}
 \end{table}
 \par En la comparación de los parámetros de corriente alterna (CA) para el amplificador en drenador común, se observa que los valores experimentales están en cercanía con los valores teóricos. El porcentaje de error es bajo en general, destacando el valor de \( V_{ent}\) con un error de 0.49, mientras que el valor más alto corresponde a \( V_{SAL} \) con un error de 2.47. El factor de amplificación \( A_V \) presenta un error de 2.89, lo que es también un valor relativamente bajo. Además, el desfase entre las señales es nulo, coincidiendo con el valor teórico de $0^\circ$. Estos resultados indican que el comportamiento del amplificador en drenador común es consistente con las expectativas teóricas en cuanto a su desempeño en corriente alterna.
-\par Seguidamente, se aumentó progresivamente la amplitud de la señal de entrada\( V_S \) con el fin de observar el comportamiento del amplificador ante señales de mayor exigencia. Se encontró que con una amplitud de 255m\( V_P \), la salida se mantenía sin distorsión visible. No obstante, a partir de 265m\( V_P \) comenzaron a notarse ligeras alteraciones en la forma de onda, que se hicieron más evidentes en 270m\( V_P \), y finalmente se observó un recorte claro en 300m\( V_P \). 
-\par En ese punto, la señal de salida alcanzó un valor máximo de 262.6913m\( V_P \) y un valor mínimo de -190.835m\( V_P \), evidenciando que el amplificador dejó de operar dentro de su región lineal. Este comportamiento se debe a que el transistor JFET alcanza sus límites de conducción: al aumentar demasiado la amplitud de la señal de entrada, el transistor entra en saturación o corte, impidiendo que la señal de salida reproduzca fielmente la forma de la señal de entrada.
-
-
-
-
+\par Seguidamente, se aumentó progresivamente la amplitud de la señal de entrada\( V_S \) con el fin de observar el comportamiento del amplificador ante señales de mayor exigencia. Se encontró que con una amplitud de 255m\( V_P \), la salida se mantenía sin distorsión visible. No obstante, a partir de 265m\( V_P \) comenzaron a notarse ligeras alteraciones en la forma de onda, que se hicieron más evidentes en 270m\( V_P \), y finalmente se observó un recorte claro en 300m\( V_P \), según se ilustra en la Figura 3.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
+    \includegraphics[width=0.5\textwidth]{Media/onda_salida_recortada.png}
+    \caption{Recorte en la señal de salida.}
+    \label{fig:onda_salida_recortada.}
 \end{figure}
-
-\par .........................
-\par ..................
-
-
+\par En ese punto, la señal de salida alcanzó un valor máximo de 262.6913m\( V_P \) y un valor mínimo de -190.835m\( V_P \), evidenciando que el amplificador dejó de operar dentro de su región lineal. Este comportamiento se debe a que el transistor JFET alcanza sus límites de conducción: al aumentar demasiado la amplitud de la señal de entrada, el transistor entra en saturación o corte, impidiendo que la señal de salida reproduzca fielmente la forma de la señal de entrada [1].
+\par A partir del circuito desarrollado en el experimento anterior, se realizó una modificación que consistió en agregar una fuente de corriente con el fin de mejorar la ganancia de tensión del amplificador en configuración de drenador común, según se ilustra en la Figura 4.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
+    \includegraphics[width=0.5\textwidth]{Media/amplificador_fuente_corriente.png}
+    \caption{Amplificador en drenador común con fuente de corriente.}
+    \label{fig:amplificador_fuente_corriente.}
 \end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-
-\par ................ 
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\par .................................
-\par ........
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\par ...................................
+\par Esta etapa del experimento permite observar cómo la incorporación de un JFET adicional, actuando como fuente de corriente, influye directamente en el comportamiento del sistema. La ganancia de tensión en este tipo de configuración es típicamente menor a uno, debido a la transconductancia $g_m$, que puede modelarse como una resistencia interna equivalente a $\frac{1}{g_m}$. Dicha resistencia se comporta de forma análoga al $r'_e$ de un transistor bipolar, aunque es mayor para una misma corriente, y junto con $R_S$, forma un divisor de tensión que limita la ganancia [1].
+\par Para contrarrestar este efecto, se implementó una fuente de corriente con un JFET, ilustrado en la Figura 4, aprovechando su alta resistencia interna. Esta configuración eliminó los capacitores de acople, lo cual representa una ventaja para la respuesta en frecuencias bajas. Además, se sustituyó el resistor de la fuente por un potenciómetro que permitió ajustar el nivel de corriente continua (DC) en la señal de salida [1]. En este diseño, la salida se tomó desde el drenador del transistor $Q_2$, que cumple la función de fuente de corriente, mientras que el transistor $Q_1$ sigue operando como amplificador en configuración de drenador común.
+\par El osciloscopio se colocó en modo de acoplamiento DC para observar la señal de salida, y se ajustó el potenciómetro $R_{S2}$ hasta obtener el menor offset posible en $V_{\text{sal}}$. Se ajusta $R_{S2}$ a 150~$\Omega$, quedando como valor máximo en 123.369mV y valor mínimo en -164.875~mV. Luego, se midieron y registraron los parámetros de tensión tanto en corriente continua como en alterna, los cuales se consignaron en la Tabla 4 y Tabla 5. 
 \begin{table}[h]
-\caption{Comparación entre valores teóricos y experimentales de voltajes.}
+    \caption{Comparación parámetros CD para el amplificador en drenador común con fuente de corriente}
     \centering
     \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
     \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
         \hline
-        & \textbf{Valor Teórico [V]} & \textbf{Valor Experimental [V]} & \textbf{Porcentaje de error [\%]} \\
+        & \textbf{Valor Teórico} & \textbf{Valor Experimental} & \textbf{Porcentaje de error [\%]} \\
         \hline
-        D1 & 0.7  & 0.698  & 0.28 \\
+        \( V_{G(Q1)} \) & 0 V  & 0.054m V  & 0.05 \\
+        \hline
+        \( V_{S(Q1)} \) & 157.632m V   & 156.921m V  & 0.45 \\
+        \hline
+        \( V_{D(Q1)} \) & 15 V & 15.011 V & 0.07 \\
+        \hline
+        \( V_{G(Q2)} \) & -15 V  & -15.011 V  & 0.07 \\
+        \hline
+        \( V_{S(Q2)} \) & -14.843 V   & -14.586 V  & 1.73 \\
+        \hline
+        \( V_{D(Q2)} \) & -20.7m V & -20.929 V & 1.1 \\
+        \hline
+        \( I_D \) & 1.5m A & 1.487m A & 0.86 \\
         \hline
     \end{tabular}
-    \label{tab:voltajes}
+    \label{tab:resistencias}
 \end{table}
-
-\par ..................................
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-
-\par .............................
-\par .............................. 
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-
-\par ...........................
-\par ...................................
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\par ......................
-\par .....................................
-
-\begin{equation*}
-    V_{R2}=2.921
-\end{equation*}
-
-\par ......................
-
 \begin{table}[h]
-\caption{Valor resistencia de carga modificada.}
+    \caption{Comparación parámetros CA para el amplificador en drenador común con fuente de corriente}
     \centering
     \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
     \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
         \hline
-        & \textbf{Valor Teórico [k$\Omega$]} & \textbf{Valor Experimental [k$\Omega$]} & \textbf{Porcentaje de error [\%]} \\
+        & \textbf{Valor Teórico} & \textbf{Valor Experimental} & \textbf{Porcentaje de error [\%]} \\
         \hline
-        RL & 10  & 9.892  & 1.08 \\
+        \( V_{ENT} \) & 149.725m V  & 150m V  & 0.18 \\
+        \hline
+        \( V_{SAL} \) & 123.369m V   & 125.432m V  & 1.67 \\
+        \hline
+        \( A_V \) & 0.823 & 0.836 & 1.57 \\
+        \hline
+        Desfase & $0^\circ$  & $0^\circ$  & 0 \\
         \hline
     \end{tabular}
-    
-    \label{tab:resistencia_carga}
+    \label{tab:resistencias}
 \end{table}
-\par ..........................
-\par .............................
 
+\par A partir del análisis de las Tablas correspondientes a los parámetros en corriente directa (CD) y corriente alterna (CA) para el amplificador en drenador común polarizado con una fuente de corriente, se evidencia un alto grado de precisión entre los valores teóricos y los experimentales. En los parámetros CD, los voltajes medidos en compuerta, fuente y drenador de ambos transistores presentaron errores mínimos, generalmente inferiores al 0.1\,\%, lo cual refleja un montaje adecuado y un correcto funcionamiento del circuito. En cuanto a la corriente de drenaje (\( I_D \)), su valor experimental se mantuvo cercano al teórico, indicando que la polarización fue estable y coherente con el diseño esperado.
+\par Respecto a los parámetros CA, la señal de entrada (\( V_{ENT} \)) y la de salida (\( V_{SAL} \)) mostraron una relación coherente, permitiendo calcular una ganancia en tensión (\( A_V \)) aproximada de 0.83, valor que valida el comportamiento esperado del amplificador en esta configuración. Además, no se observó desfase entre ambas señales, lo cual es característico del amplificador en drenador común. En general, las mediciones respaldan el correcto desempeño del circuito, y la inclusión de una fuente de corriente permitió mejorar la ganancia manteniendo una buena estabilidad de la señal.
+\par En esta sección del experimento se procedió a analizar el comportamiento del amplificador en drenador común con fuente de corriente ante señales de entrada con amplitudes crecientes, con el fin de identificar el punto de recorte o saturación de la señal de salida. Se incrementó progresivamente la amplitud de la señal de entrada (\( V_S \)), comenzando con valores bajos para observar el comportamiento lineal del sistema. Se observó que, con una amplitud de 6(\( V_P \)), la salida permanecía sin distorsión visible; sin embargo, al aumentar a 7(\( V_P \)), comenzaron a percibirse ligeras deformaciones en la forma de onda. Estas alteraciones se hicieron más notorias a 8(\( V_P \)) y resultaron claramente visibles a 10(\( V_P \)), momento en el cual se presentó un recorte evidente en la señal de salida, como se documenta en la figura correspondiente, Figura 5.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
+    \includegraphics[width=0.5\textwidth]{Media/amplificador_fuente_recorte.png}
+    \caption{Onda de salida con recorte.}
+    \label{fig:amplificador_fuente_recorte.}
 \end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/diagrama_flujo_restador.png}
-    \caption{Diagrama de flujo del funcionamiento del Restador parametrizable.}
-    \label{fig:diagrama_flujo_restador}
-\end{figure}
-
-\par .........................
-\par ........................
-
+\par En este punto de saturación, la salida alcanzó un valor máximo de 7.744 V y un mínimo de -6.414 V, lo que indica que el amplificador salió de su región lineal de operación. Este recorte se debe a que el transistor JFET llega a sus límites de conducción, entrando en saturación o corte, y por lo tanto no puede seguir reproduciendo fielmente la forma de la señal de entrada [1]. Esta observación evidencia la importancia de mantener la entrada dentro del rango dinámico permitido para evitar distorsiones significativas.
+\par La ganancia del amplificador mejoró considerablemente al sustituir la resistencia de fuente (\( R_S \)) por una fuente de corriente activa con JFET. Aunque los valores numéricos de ganancia obtenidos fueron cercanos 0.8655 para la configuración con autopolarización y 0.8239 para la configuración con fuente de corriente, el cambio en la estructura del circuito trajo consigo mejoras en el comportamiento general de la señal. Este comportamiento indica que, aunque la ganancia en valores absolutos se redujo ligeramente, la fuente de corriente permite un mayor rango dinámico y una menor distorsión bajo señales exigentes [1], lo cual representa una mejora real en el desempeño del amplificador.
 
 \section{Conclusion}
-\par ....................................
-\par ........................
-\par .........................
+\par En el amplificador en drenador común sin la incorporación de una fuente de corriente, se observó una ganancia de tensión menor a la unidad, lo cual es característico de esta configuración debido a la presencia de una resistencia interna del transistor ($\frac{1}{g_m}$) que, junto con la resistencia de fuente $R_S$, forma un divisor de tensión. Esta limitación en la ganancia refleja la naturaleza amortiguada del circuito, siendo útil en aplicaciones como buffers, pero ineficiente si se requiere amplificación significativa de señal.
+\par Al implementar una fuente de corriente mediante un segundo transistor JFET ($Q_2$), se logró una mejora notable en la ganancia del amplificador en drenador común. Esto se debe a la alta resistencia de salida ofrecida por la fuente de corriente, que minimiza el efecto divisor de tensión entre $R_S$ y $\frac{1}{g_m}$, permitiendo que una mayor proporción de la señal se transmita a la salida. Además, la eliminación de capacitores de acople favorece una mejor respuesta en bajas frecuencias, haciendo esta configuración más eficiente y versátil para aplicaciones que requieren una mayor fidelidad en la amplificación de señales.
+
 
 \appendices
 \section{}
-\noindent\textbf{Análisis del Divisor de Tensión}
-\par En los circuitos analizados, las resistencias R2 y RL conforman un divisor de tensión que influye en la señal de salida [1]. Aplicando la ecuación del divisor de tensión:
+\noindent\textbf{Ganancia de tensión ($A_v$)}
+\par La ganancia de tensión de un amplificador en drenador común se define como la relación entre la señal de salida y la señal de entrada [1]:
 \begin{equation}
-    V_{out}=(V_{in}\times R_L)/(R_2+\ R_L\ )
+A_v = \frac{V_{SAL}}{V_{ENT}}
 \end{equation}
-\par Se puede calcular la tensión que se observa en la salida en función de los valores de las resistencias. En particular, la reducción de RL afecta directamente la caída de tensión y modifica la amplitud de la señal de salida [1].
-\\
-\newline
-\textbf{Deducción del Recorte de Señal por el Diodo}
-\par El diodo 1N914, cuando se encuentra en polarización directa, permite el paso de corriente y presenta una caída de tensión aproximada de 0.7V [1]. Cuando la señal de entrada cae por debajo de este umbral, el diodo se bloquea y evita el paso de corriente, recortando la señal en dicho punto [2]. Este fenómeno es clave en circuitos recortadores, donde la forma de la señal de salida es modificada significativamente por la presencia del diodo. La ecuación de la señal recortada puede expresarse como:
-\begin{equation}
-    V_{OUT}=V_{IN}-V_{D}\ \ cuando\ V_{IN}>V_{D}
-\end{equation}
-\par Lo que confirma que la amplitud máxima de la señal de salida se ve limitada por el umbral del diodo [1].
-\\
-\newline
-\textbf{Frecuencia y Período de la Señal}
-\par La frecuencia y el período son parámetros fundamentales en el análisis de señales sinusoidales como las utilizadas en este experimento [1]. La relación entre ambas magnitudes se expresa mediante la ecuación:
-\begin{equation}
-    T=1/f
-\end{equation}
-Donde:
+\par Donde:
 \begin{itemize}
-    \item T es el período de la señal en segundos [s]
-	\item  f es la frecuencia de la señal en Hertz [Hz]
+    \item $V_{SAL}$ es la amplitud pico a pico de la señal de salida.
+    \item $V_{ENT}$ es la amplitud pico a pico de la señal de entrada.
+\end{itemize}
+\par En esta configuración, dado que el circuito actúa como un seguidor de fuente, la ganancia típica es ligeramente menor a 1 debido a la resistencia interna del transistor [1]:
+\begin{equation}
+A_v \approx \frac{g_m R_L}{1 + g_m R_S}
+\end{equation}
+\par Donde:
+\begin{itemize}
+    \item $g_m$ es la transconductancia del JFET.
+    \item $R_L$ es la carga conectada en la salida (normalmente igual a $R_L$ externo o equivalente).
+    \item $R_S$ es la resistencia de fuente.
 \end{itemize}
 \\
 \newline
-\par En este experimento, la señal generada tiene una frecuencia de 1kHz, lo que implica un período de:
+\textbf{Diferencia de fase entre señales}
+\par La diferencia de fase entre la señal de entrada y la salida puede observarse utilizando un osciloscopio en modo XY o superponiendo ambas señales en modo tiempo. En el caso del amplificador en drenador común, la salida está prácticamente en fase con la entrada, aunque puede haber un ligero retardo de fase debido a las capacidades parásitas [1].
+\par Para calcular la diferencia de fase ($\phi$) se puede usar:
 \begin{equation}
-    T=1/1000=1ms
+\phi = \frac{\Delta t}{T} \times 360^\circ
 \end{equation}
-\par Esto significa que la onda completa se repite cada 1 milisegundo. 
-\\
-\newline
-\textbf{Cálculo de la Tensión en R2 mediante la Ley de Kirchhoff}
-\par Dada la onda de tensión sobre la carga y la fuente en el circuito de la Figura 6, se puede utilizar la Ley de Tensiones de Kirchhoff para obtener la tensión sobre la resistencia R2 [1]. En el circuito, las tensiones relevantes en el lazo donde está la resistencia R2 son:
+\par Donde:
 \begin{itemize}
-	\item V$_S$: Voltaje de la fuente de señal
-	\item V$_{R2}$: Voltaje en la resistencia R2
-	\item V$_Y$: Voltaje en el nodo de salida del circuito
+    \item $\Delta t$ es la diferencia de tiempo entre los picos (o cruces por cero) de las señales de entrada y salida.
+    \item $T$ es el período de la señal.
 \end{itemize}
+\par La diferencia de fase se mide en grados ($^\circ$), y un desfase positivo indica que la salida va retrasada con respecto a la entrada.
 \\
 \newline
-Aplicando la Ley de Kirchhoff:
-\begin{equation}
-    V_{R2}=V_S-V_Y
-\end{equation}
-Dado que:
-\begin{equation}
-    V_Y=V_{D1}-V_{RL}
-\end{equation}
-Se expresa la ecuación como:
-\begin{equation}
-    V_{R2}=V_S-(V_{D1}-V_{RL}\ )
-\end{equation}
-Sustituyendo los valores:
-\begin{equation}
-    V_{R2}=3V \ (0.7V-621.502mV\ )=2.921V
-\end{equation}
-
-
+\textbf{Interpretación de diferencia de fase entre señales}
+\subsubsection*{Desfase de 0°}
+\par Cuando se dice que hay un desfase de 0°, significa que la señal de salida está en fase con la señal de entrada. Es decir, ambas señales alcanzan sus valores máximos, mínimos y puntos de cruce por cero al mismo tiempo [1]. Esto es típico en configuraciones como el amplificador en drenador común (seguidor de fuente).
+\begin{itemize}
+    \item La forma de onda de salida es prácticamente una copia atenuada de la entrada.
+    \item No hay inversión de señal.
+\end{itemize}
+\subsubsection*{Desfase de 180°}
+\par Un desfase de 180° indica que la señal de salida está invertida respecto a la entrada. Cuando la entrada está en su punto máximo, la salida está en su punto mínimo, y viceversa [1].
+\begin{itemize}
+    \item Es característico de configuraciones como el amplificador en fuente común.
+    \item La salida es una imagen especular (invertida verticalmente) de la entrada.
+\end{itemize}
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
 
 \begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
+\bibitem{alexander}
+C. K. Alexander and M. N. O. Sadiku, \textit{Fundamentos de circuitos eléctricos}. México ; Madrid Etc.: McGraw-Hill, 2018.
 \end{thebibliography}
-
-\begin{IEEEbiography}{Michael Shell}
-Biography text here.
-\end{IEEEbiography}
-
-\begin{IEEEbiographynophoto}{John Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
-
-\begin{IEEEbiographynophoto}{Jane Doe}
-Biography text here.
-\end{IEEEbiographynophoto}
-
 \end{document}
+
+
+
