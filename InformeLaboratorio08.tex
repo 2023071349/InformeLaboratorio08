@@ -84,12 +84,12 @@
 			\hline
 			R3 & 10k & 9.909k & 0.91 \\
 			\hline
-			R3 & 220 & 220.672 & 0.30 \\
+			R4 & 220 & 220.672 & 0.30 \\
 			\hline
-			R3 & 1M & 0.986M & 1.4 \\
+			R5 & 1M & 0.986M & 1.4 \\
 			\hline
 		\end{tabular}
-		\label{tab:resistencias}
+		\label{tab:resistencias1}
 	\end{table}
 	\par A partir de los datos obtenidos, se evidencia que los valores experimentales de las resistencias presentan una buena concordancia con los valores teóricos. El porcentaje de error registrado en cada caso se mantiene igual o por debajo de 1.4, lo cual es coherente con las tolerancias esperadas en componentes electrónicos de uso general. Estos resultados permiten asegurar que los componentes empleados son adecuados para el desarrollo experimental y garantizan mediciones confiables.
 	\par Se procedió con la construcción del circuito amplificador en drenador común, según lo ilustrado en la Figura 1. 
@@ -97,7 +97,7 @@
 		\centering
 		\includegraphics[width=0.5\textwidth]{Media/amplificador_drenador_común.png}
 		\caption{Amplificador en drenador común.}
-		\label{fig:amplificador_drenador_común.}
+		\label{fig:amplificador_drenador_común}
 	\end{figure}
 	\par Una vez ensamblado el circuito, se midieron las tensiones en corriente directa (CD) en los terminales de drenador, fuente y compuerta del transistor JFET. A partir de la tensión medida en la resistencia \( R_S \), se calculó la corriente \( I_D \) correspondiente. Todos los valores obtenidos fueron registrados en la Tabla 2 para su análisis comparativo.
 	\begin{table}[h]
@@ -114,10 +114,10 @@
 			\hline
 			\( V_D \) & 15 V & 15.011 V & 0.07 \\
 			\hline
-			\( I_D \) & 269, 847m A & 268.672m A & 0.43 \\
+			\( I_D \) & 269.847m A & 268.672m A & 0.43 \\
 			\hline
 		\end{tabular}
-		\label{tab:resistencias}
+		\label{tab:resistencias2}
 	\end{table}
 	\par En la comparación de los parámetros del amplificador en drenador común, se observa que los valores experimentales obtenidos están muy cerca de los valores teóricos, lo que indica una buena concordancia entre ambos. El porcentaje de error se mantiene bajo en todos los casos, con el valor más bajo registrado en \( V_G \), y el más alto en \( I_D \). En general, los errores porcentuales son mínimos, lo que refleja una correcta implementación del amplificador en drenador común.
 	\par Posteriormente, se utilizaron las puntas del osciloscopio para observar simultáneamente la señal de entrada y la señal de salida en corriente alterna (CA), con el fin de analizar su comportamiento dinámico, según lo ilustrado en la Figura 2. 
@@ -247,7 +247,7 @@
 	\par Seguidamente se ensambló el circuito del amplificador fuente común y se llevaron a cabo las mediciones correspondientes en CD.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\textwidth]{C:/Users/pguid/InformeLaboratorio08/fig/fuentecomn.png}
+		\includegraphics[width=0.5\textwidth]{fig/amplificador_fuente_común.png}
 		\caption{Amplificador en fuente común.}
 		\label{fig:amplificador_fuente_común}
 	\end{figure}
@@ -275,9 +275,9 @@
 	Seguidamente se encendió la fuente de CA y se utilizó el osciloscopio para obtener las señales de entrada y salida del circuito, esto para lograr obtener la ganancia del mismo.
 	\begin{figure}[H]
 		\centering
-		\includegraphics[width=0.5\textwidth]{C:/Users/pguid/InformeLaboratorio08/fig/fc.png}
+		\includegraphics[width=0.5\textwidth]{fig/fc.png}
 		\caption{Señal CA de amplificador en fuente común.}
-		\label{fig:amplificador_fuente_común}
+		\label{fig:amplificador_fuente_común_CA}
 	\end{figure}
 	\begin{table}[h]
 		\caption{Comparación parámetros CA para el amplificador en fuente común}
@@ -342,8 +342,7 @@
 		\item $R_L$ es la carga conectada en la salida (normalmente igual a $R_L$ externo o equivalente).
 		\item $R_S$ es la resistencia de fuente.
 	\end{itemize}
-	\\
-	\newline
+	
 	\textbf{Diferencia de fase entre señales}
 	\par La diferencia de fase entre la señal de entrada y la salida puede observarse utilizando un osciloscopio en modo XY o superponiendo ambas señales en modo tiempo. En el caso del amplificador en drenador común, la salida está prácticamente en fase con la entrada, aunque puede haber un ligero retardo de fase debido a las capacidades parásitas [1].
 	\par Para calcular la diferencia de fase ($\phi$) se puede usar:
