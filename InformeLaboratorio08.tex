@@ -67,6 +67,7 @@ Para la realización de ambas configuraciones del experimento se emplearon los s
 \end{itemize}
 
 \section{Resultados Experimentales}
+\textbf{Amplificador en drenador común}
 \par Se presentan los datos obtenidos durante la ejecución del experimento en la parte correspondiente al amplificador con drenador común. Se incluyen mediciones realizadas con los instrumentos de laboratorio, así como observaciones relevantes sobre el comportamiento del circuito. Además, se comparan los resultados experimentales con los valores teóricos y simulaciones para analizar la precisión de las mediciones.
 \par Para garantizar la precisión de los resultados obtenidos en el experimento, se realizó una medición previa de los valores de las resistencias y capacitores, y así, asegurar que los valores reales estuvieran dentro de la tolerancia especifica. Los valores obtenidos en la medición se presentan en la siguiente tabla:
 \begin{table}[h]
@@ -147,15 +148,9 @@ Para la realización de ambas configuraciones del experimento se emplearon los s
     \label{tab:resistencias}
 \end{table}
 \par En la comparación de los parámetros de corriente alterna (CA) para el amplificador en drenador común, se observa que los valores experimentales están en cercanía con los valores teóricos. El porcentaje de error es bajo en general, destacando el valor de \( V_{ent}\) con un error de 0.49, mientras que el valor más alto corresponde a \( V_{SAL} \) con un error de 2.47. El factor de amplificación \( A_V \) presenta un error de 2.89, lo que es también un valor relativamente bajo. Además, el desfase entre las señales es nulo, coincidiendo con el valor teórico de $0^\circ$. Estos resultados indican que el comportamiento del amplificador en drenador común es consistente con las expectativas teóricas en cuanto a su desempeño en corriente alterna.
-\par Seguidamente, se aumentó progresivamente la amplitud de la señal de entrada\( V_S \) con el fin de observar el comportamiento del amplificador ante señales de mayor exigencia. Se encontró que con una amplitud de 255m\( V_P \), la salida se mantenía sin distorsión visible. No obstante, a partir de 265m\( V_P \) comenzaron a notarse ligeras alteraciones en la forma de onda, que se hicieron más evidentes en 270m\( V_P \), y finalmente se observó un recorte claro en 300m\( V_P \), según se ilustra en la Figura 3.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/onda_salida_recortada.png}
-    \caption{Recorte en la señal de salida.}
-    \label{fig:onda_salida_recortada.}
-\end{figure}
+\par Seguidamente, se aumentó progresivamente la amplitud de la señal de entrada\( V_S \) con el fin de observar el comportamiento del amplificador ante señales de mayor exigencia. Se encontró que con una amplitud de 255m\( V_P \), la salida se mantenía sin distorsión visible. No obstante, a partir de 265m\( V_P \) comenzaron a notarse ligeras alteraciones en la forma de onda, que se hicieron más evidentes en 270m\( V_P \), y finalmente se observó un recorte claro en 300m\( V_P \).
 \par En ese punto, la señal de salida alcanzó un valor máximo de 262.6913m\( V_P \) y un valor mínimo de -190.835m\( V_P \), evidenciando que el amplificador dejó de operar dentro de su región lineal. Este comportamiento se debe a que el transistor JFET alcanza sus límites de conducción: al aumentar demasiado la amplitud de la señal de entrada, el transistor entra en saturación o corte, impidiendo que la señal de salida reproduzca fielmente la forma de la señal de entrada [1].
-\par A partir del circuito desarrollado en el experimento anterior, se realizó una modificación que consistió en agregar una fuente de corriente con el fin de mejorar la ganancia de tensión del amplificador en configuración de drenador común, según se ilustra en la Figura 4.
+\par A partir del circuito desarrollado en el experimento anterior, se realizó una modificación que consistió en agregar una fuente de corriente con el fin de mejorar la ganancia de tensión del amplificador en configuración de drenador común, según se ilustra en la Figura 3.
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{Media/amplificador_fuente_corriente.png}
@@ -209,18 +204,14 @@ Para la realización de ambas configuraciones del experimento se emplearon los s
     \end{tabular}
     \label{tab:resistencias}
 \end{table}
-
 \par A partir del análisis de las Tablas correspondientes a los parámetros en corriente directa (CD) y corriente alterna (CA) para el amplificador en drenador común polarizado con una fuente de corriente, se evidencia un alto grado de precisión entre los valores teóricos y los experimentales. En los parámetros CD, los voltajes medidos en compuerta, fuente y drenador de ambos transistores presentaron errores mínimos, generalmente inferiores al 0.1\,\%, lo cual refleja un montaje adecuado y un correcto funcionamiento del circuito. En cuanto a la corriente de drenaje (\( I_D \)), su valor experimental se mantuvo cercano al teórico, indicando que la polarización fue estable y coherente con el diseño esperado.
 \par Respecto a los parámetros CA, la señal de entrada (\( V_{ENT} \)) y la de salida (\( V_{SAL} \)) mostraron una relación coherente, permitiendo calcular una ganancia en tensión (\( A_V \)) aproximada de 0.83, valor que valida el comportamiento esperado del amplificador en esta configuración. Además, no se observó desfase entre ambas señales, lo cual es característico del amplificador en drenador común. En general, las mediciones respaldan el correcto desempeño del circuito, y la inclusión de una fuente de corriente permitió mejorar la ganancia manteniendo una buena estabilidad de la señal.
-\par En esta sección del experimento se procedió a analizar el comportamiento del amplificador en drenador común con fuente de corriente ante señales de entrada con amplitudes crecientes, con el fin de identificar el punto de recorte o saturación de la señal de salida. Se incrementó progresivamente la amplitud de la señal de entrada (\( V_S \)), comenzando con valores bajos para observar el comportamiento lineal del sistema. Se observó que, con una amplitud de 6(\( V_P \)), la salida permanecía sin distorsión visible; sin embargo, al aumentar a 7(\( V_P \)), comenzaron a percibirse ligeras deformaciones en la forma de onda. Estas alteraciones se hicieron más notorias a 8(\( V_P \)) y resultaron claramente visibles a 10(\( V_P \)), momento en el cual se presentó un recorte evidente en la señal de salida, como se documenta en la figura correspondiente, Figura 5.
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.5\textwidth]{Media/amplificador_fuente_recorte.png}
-    \caption{Onda de salida con recorte.}
-    \label{fig:amplificador_fuente_recorte.}
-\end{figure}
+\par En esta sección del experimento se procedió a analizar el comportamiento del amplificador en drenador común con fuente de corriente ante señales de entrada con amplitudes crecientes, con el fin de identificar el punto de recorte o saturación de la señal de salida. Se incrementó progresivamente la amplitud de la señal de entrada (\( V_S \)), comenzando con valores bajos para observar el comportamiento lineal del sistema. Se observó que, con una amplitud de 6(\( V_P \)), la salida permanecía sin distorsión visible; sin embargo, al aumentar a 7(\( V_P \)), comenzaron a percibirse ligeras deformaciones en la forma de onda. Estas alteraciones se hicieron más notorias a 8(\( V_P \)) y resultaron claramente visibles a 10(\( V_P \)), momento en el cual se presentó un recorte evidente en la señal de salida.
 \par En este punto de saturación, la salida alcanzó un valor máximo de 7.744 V y un mínimo de -6.414 V, lo que indica que el amplificador salió de su región lineal de operación. Este recorte se debe a que el transistor JFET llega a sus límites de conducción, entrando en saturación o corte, y por lo tanto no puede seguir reproduciendo fielmente la forma de la señal de entrada [1]. Esta observación evidencia la importancia de mantener la entrada dentro del rango dinámico permitido para evitar distorsiones significativas.
 \par La ganancia del amplificador mejoró considerablemente al sustituir la resistencia de fuente (\( R_S \)) por una fuente de corriente activa con JFET. Aunque los valores numéricos de ganancia obtenidos fueron cercanos 0.8655 para la configuración con autopolarización y 0.8239 para la configuración con fuente de corriente, el cambio en la estructura del circuito trajo consigo mejoras en el comportamiento general de la señal. Este comportamiento indica que, aunque la ganancia en valores absolutos se redujo ligeramente, la fuente de corriente permite un mayor rango dinámico y una menor distorsión bajo señales exigentes [1], lo cual representa una mejora real en el desempeño del amplificador.
+\newline
+\\
+\textbf{Amplificador en fuente común}
 
 \section{Conclusion}
 \par En el amplificador en drenador común sin la incorporación de una fuente de corriente, se observó una ganancia de tensión menor a la unidad, lo cual es característico de esta configuración debido a la presencia de una resistencia interna del transistor ($\frac{1}{g_m}$) que, junto con la resistencia de fuente $R_S$, forma un divisor de tensión. Esta limitación en la ganancia refleja la naturaleza amortiguada del circuito, siendo útil en aplicaciones como buffers, pero ineficiente si se requiere amplificación significativa de señal.
