@@ -218,72 +218,167 @@
 	\par La ganancia del amplificador mejoró considerablemente al sustituir la resistencia de fuente (\( R_S \)) por una fuente de corriente activa con JFET. Aunque los valores numéricos de ganancia obtenidos fueron cercanos 0.8655 para la configuración con autopolarización y 0.8239 para la configuración con fuente de corriente, el cambio en la estructura del circuito trajo consigo mejoras en el comportamiento general de la señal. Este comportamiento indica que, aunque la ganancia en valores absolutos se redujo ligeramente, la fuente de corriente permite un mayor rango dinámico y una menor distorsión bajo señales exigentes [1], lo cual representa una mejora real en el desempeño del amplificador.
 	\newline
 	\\
-	\textbf{Amplificador en fuente común}
-	
-	\section{Conclusion}
-	\par En el amplificador en drenador común sin la incorporación de una fuente de corriente, se observó una ganancia de tensión menor a la unidad, lo cual es característico de esta configuración debido a la presencia de una resistencia interna del transistor ($\frac{1}{g_m}$) que, junto con la resistencia de fuente $R_S$, forma un divisor de tensión. Esta limitación en la ganancia refleja la naturaleza amortiguada del circuito, siendo útil en aplicaciones como buffers, pero ineficiente si se requiere amplificación significativa de señal.
-	\par Al implementar una fuente de corriente mediante un segundo transistor JFET ($Q_2$), se logró una mejora notable en la ganancia del amplificador en drenador común. Esto se debe a la alta resistencia de salida ofrecida por la fuente de corriente, que minimiza el efecto divisor de tensión entre $R_S$ y $\frac{1}{g_m}$, permitiendo que una mayor proporción de la señal se transmita a la salida. Además, la eliminación de capacitores de acople favorece una mejor respuesta en bajas frecuencias, haciendo esta configuración más eficiente y versátil para aplicaciones que requieren una mayor fidelidad en la amplificación de señales.
-	
-	
-	\appendices
-	\section{}
-	\noindent\textbf{Ganancia de tensión ($A_v$)}
-	\par La ganancia de tensión de un amplificador en drenador común se define como la relación entre la señal de salida y la señal de entrada [1]:
-	\begin{equation}
-		A_v = \frac{V_{SAL}}{V_{ENT}}
-	\end{equation}
-	\par Donde:
-	\begin{itemize}
-		\item $V_{SAL}$ es la amplitud pico a pico de la señal de salida.
-		\item $V_{ENT}$ es la amplitud pico a pico de la señal de entrada.
-	\end{itemize}
-	\par En esta configuración, dado que el circuito actúa como un seguidor de fuente, la ganancia típica es ligeramente menor a 1 debido a la resistencia interna del transistor [1]:
-	\begin{equation}
-		A_v \approx \frac{g_m R_L}{1 + g_m R_S}
-	\end{equation}
-	\par Donde:
-	\begin{itemize}
-		\item $g_m$ es la transconductancia del JFET.
-		\item $R_L$ es la carga conectada en la salida (normalmente igual a $R_L$ externo o equivalente).
-		\item $R_S$ es la resistencia de fuente.
-	\end{itemize}
-	\\
-	\newline
-	\textbf{Diferencia de fase entre señales}
-	\par La diferencia de fase entre la señal de entrada y la salida puede observarse utilizando un osciloscopio en modo XY o superponiendo ambas señales en modo tiempo. En el caso del amplificador en drenador común, la salida está prácticamente en fase con la entrada, aunque puede haber un ligero retardo de fase debido a las capacidades parásitas [1].
-	\par Para calcular la diferencia de fase ($\phi$) se puede usar:
-	\begin{equation}
-		\phi = \frac{\Delta t}{T} \times 360^\circ
-	\end{equation}
-	\par Donde:
-	\begin{itemize}
-		\item $\Delta t$ es la diferencia de tiempo entre los picos (o cruces por cero) de las señales de entrada y salida.
-		\item $T$ es el período de la señal.
-	\end{itemize}
-	\par La diferencia de fase se mide en grados ($^\circ$), y un desfase positivo indica que la salida va retrasada con respecto a la entrada.
-	\\
-	\newline
-	\textbf{Interpretación de diferencia de fase entre señales}
-	\subsubsection*{Desfase de 0°}
-	\par Cuando se dice que hay un desfase de 0°, significa que la señal de salida está en fase con la señal de entrada. Es decir, ambas señales alcanzan sus valores máximos, mínimos y puntos de cruce por cero al mismo tiempo [1]. Esto es típico en configuraciones como el amplificador en drenador común (seguidor de fuente).
-	\begin{itemize}
-		\item La forma de onda de salida es prácticamente una copia atenuada de la entrada.
-		\item No hay inversión de señal.
-	\end{itemize}
-	\subsubsection*{Desfase de 180°}
-	\par Un desfase de 180° indica que la señal de salida está invertida respecto a la entrada. Cuando la entrada está en su punto máximo, la salida está en su punto mínimo, y viceversa [1].
-	\begin{itemize}
-		\item Es característico de configuraciones como el amplificador en fuente común.
-		\item La salida es una imagen especular (invertida verticalmente) de la entrada.
-	\end{itemize}
-	\ifCLASSOPTIONcaptionsoff
-	\newpage
-	\fi
-	
-	\begin{thebibliography}{1}
-		\bibitem{alexander}
-		C. K. Alexander and M. N. O. Sadiku, \textit{Fundamentos de circuitos eléctricos}. México ; Madrid Etc.: McGraw-Hill, 2018.
-	\end{thebibliography}
+\textbf{Amplificador en fuente común}
+\par A continuación se presentan los datos obtenidos durante la realización del experimento correspondiente al amplificador con fuente común. Se incluyen las mediciones efectuadas con los instrumentos de laboratorio, así como observaciones relevantes sobre el comportamiento del circuito y comparaciones con mediciones teóricas realizadas con anterioridad. Seguidamente se presenta la tabla de comparación de los valores teoricos y experimentales utilizados en el documento.
+
+\begin{table}[h]
+    \caption{Comparación entre valores teóricos y experimentales de resistencias.}
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
+    \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        & \textbf{Valor Teórico [$\Omega$]} &
+        \textbf{Valor Experimental [$\Omega$]} & 
+        \textbf{Porcentaje de error [\%]} \\
+        \hline
+        RS & 56  & 55.386  & 1.09 \\
+        \hline
+        RD & 6.8k   & 6.634k  & 2.44 \\
+        \hline
+        RG & 1M & 1.006M & 0.6 \\
+        \hline
+        RL & 10k & 9.959k & 0.41 \\
+        \hline
+    \end{tabular}
+    \label{tab:resistencias2}
+\end{table}
+\par Se evidencia que los componentes utilizados se encuentran dentro de los márgenes de tolerancia establecidos por el fabricante.Los valores medidos de las resistencias se encuentran muy cercanos a los valores teóricos esperados, con errores que en ningún caso superan el 2.5\%. La mayor desviación se presenta en la resistencia RD, con un error del 2.44\%, mientras que las demás resistencias presentan variaciones inferiores al 1.1\%.
+
+\par Seguidamente se ensambló el circuito del amplificador fuente común y se llevaron a cabo las mediciones correspondientes en CD.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{C:/Users/pguid/InformeLaboratorio08/fig/fuentecomn.png}
+    \caption{Amplificador en fuente común.}
+    \label{fig:amplificador_fuente_común}
+\end{figure}
+\par Para esto, se mantuvo apagada la fuente de tensión en CA y se midieron las tensiones en la compuerta, fuente y drenador. Todos los valores obtenidos fueron registrados en la Tabla 6 para su análisis comparativo.
+\begin{table}[h]
+    \caption{Comparación parámetros CD para el amplificador en fuente común}
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
+    \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        & \textbf{Valor Teórico} & \textbf{Valor Experimental} & \textbf{Porcentaje de error [\%]} \\
+        \hline
+        \( V_G \) & 0V  & 6.67$\mu$V  & 0 \\
+        \hline
+        \( V_S \) & 71.31mV   & 72.51mV  & 1.68 \\
+        \hline
+        \( V_D \) & 6,34V & 6,57V & 3.6 \\
+        \hline
+        \( I_D \) & 1.27mA & 1.24mA & 2.3 \\
+        \hline
+    \end{tabular}
+    \label{tab:circuito2}
+\end{table}
+\par Se aprecia una adecuada correspondencia entre los valores teóricos y experimentales, evidenciada por los bajos porcentajes de error, lo cual sugiere que el comportamiento del circuito real se aproxima al previsto en el diseño. La diferencia en el voltaje de compuerta \( V_G \) es despreciable y puede atribuirse al ruido instrumental, mientras que las variaciones observadas en \( V_S \), \( V_D \) e \( I_D \), con errores de 1.68\,\%, 3.6\,\% y 2.3\,\% respectivamente, se deben principalmente a las tolerancias de los componentes utilizados y a las características no ideales del transistor.
+Seguidamente se encendió la fuente de CA y se utilizó el osciloscopio para obtener las señales de entrada y salida del circuito, esto para lograr obtener la ganancia del mismo.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{C:/Users/pguid/InformeLaboratorio08/fig/fc.png}
+    \caption{Señal CA de amplificador en fuente común.}
+    \label{fig:amplificador_fuente_común}
+\end{figure}
+\begin{table}[h]
+    \caption{Comparación parámetros CA para el amplificador en fuente común}
+    \centering
+    \renewcommand{\arraystretch}{1.2} % Ajusta la altura de las filas
+    \begin{tabular}{|l|p{2cm}|p{2cm}|p{2cm}|}
+        \hline
+        & \textbf{Valor Teórico} & \textbf{Valor Experimental} & \textbf{Porcentaje de error [\%]} \\
+        \hline
+        \( V_{ENT} \) & 149.418mV  & 140mV  & 6.3 \\
+        \hline
+        \( V_{SAL} \) & 4.563V   & 4.10V  & 10.1 \\
+        \hline
+        \( A_V \) & 30.11 & 29.3 & 2.6 \\
+        \hline
+        Desfase & $180^\circ$  & $171.10^\circ$  & 4.9 \\
+        \hline
+    \end{tabular}
+    \label{tab:CA}
+\end{table}
+\par Como se puede observar en la tabla, los valores experimentales presentan un margen de error aceptable con respecto a los teóricos. El mayor error se encuentra en $V_{SAL}$ con un 10.16\%, posiblemente debido a pérdidas en el sistema o tolerancias de los componentes. En contraste, la ganancia $A_V$ muestra un error reducido del 2.69\%, indicando una buena precisión del circuito amplificador respecto a lo esperado.
+
+\par Seguidamente se realizó un cambio en la resistencia RL, esta pasó de 10k a 100k.
+Se evidenció cómo influye directamente la resistencia de carga \( R_L \) en el voltaje de salida y en la ganancia de tensión de un amplificador con transistor JFET en configuración de fuente común. Al inicio, utilizando una resistencia de carga de \( 10\,\text{k}\Omega \), se registró un voltaje de salida cercano a \( 4.1\,V_P \) y una ganancia de tensión de \( A_V = 29.3 \), a partir de una señal de entrada de \( 140\,\text{m}V_P \).
+
+Cuando se incrementó el valor de \( R_L \) a \( 100\,\text{k}\Omega \), el voltaje de salida se elevó hasta \( 4.30\,V_P \), lo cual corresponde a una ganancia de tensión de \( A_V = 23.8 \).
+
+Este resultado evidencia que la ganancia de un amplificador con configuración de fuente común no es constante, sino que depende del valor de la resistencia de carga conectada a la salida. Aunque teóricamente un aumento en \( R_L \) debería generar una mayor amplificación, en la práctica pueden intervenir factores como tolerancias en los componentes, no linealidades del transistor o variaciones en el punto de operación, que afectan el comportamiento real del circuito. Aun así, se conserva la tendencia general: una mayor resistencia de carga puede traducirse en una ganancia mayor, siempre y cuando el transistor opere dentro de su región activa [1].
+
+
+
+\section{Conclusion}
+\par En el amplificador en drenador común sin la incorporación de una fuente de corriente, se observó una ganancia de tensión menor a la unidad, lo cual es característico de esta configuración debido a la presencia de una resistencia interna del transistor ($\frac{1}{g_m}$) que, junto con la resistencia de fuente $R_S$, forma un divisor de tensión. Esta limitación en la ganancia refleja la naturaleza amortiguada del circuito, siendo útil en aplicaciones como buffers, pero ineficiente si se requiere amplificación significativa de señal.
+\par Al implementar una fuente de corriente mediante un segundo transistor JFET ($Q_2$), se logró una mejora notable en la ganancia del amplificador en drenador común. Esto se debe a la alta resistencia de salida ofrecida por la fuente de corriente, que minimiza el efecto divisor de tensión entre $R_S$ y $\frac{1}{g_m}$, permitiendo que una mayor proporción de la señal se transmita a la salida. Además, la eliminación de capacitores de acople favorece una mejor respuesta en bajas frecuencias, haciendo esta configuración más eficiente y versátil para aplicaciones que requieren una mayor fidelidad en la amplificación de señales.
+
+\par Por otro lado, los resultados obtenidos en el experimento del amplificador en fuente común muestran una excelente correspondencia entre los valores teóricos y experimentales, con márgenes de error generalmente bajos. Las variaciones observadas en las mediciones pueden atribuirse principalmente a las tolerancias de los componentes empleados y a las características no ideales del transistor, tales como el ruido y las imperfecciones del comportamiento real del circuito.
+
+\par En los resultados en corriente continua (CD), los valores de voltaje y corriente se acercaron bastante a los teóricos, esto indica un correcto funcionamiento del amplificador. Para corriente alterna (CA), aunque tuvo errores mayores, especialmente en el voltaje de salida, la ganancia y el desfase se mantuvieron dentro de un rango aceptable, lo que indica que el amplificador cumplió adecuadamente su función.
+
+\par Finalmente, al realizar el cambio en la resistencia de carga, se verificó que la ganancia de tensión en un amplificador de fuente común depende directamente de este componente. Esto resalta la importancia de considerar los parámetros de diseño al configurar el circuito. Estos experimentos proporcionan una comprensión detallada de cómo factores como la tolerancia de los componentes y las no idealidades del transistor pueden influir en el rendimiento real de los amplificadores, brindando información valiosa para futuras mejoras en el diseño.
+
+
+\appendices
+\section{}
+\noindent\textbf{Ganancia de tensión ($A_v$)}
+\par La ganancia de tensión de un amplificador en drenador común se define como la relación entre la señal de salida y la señal de entrada [1]:
+\begin{equation}
+A_v = \frac{V_{SAL}}{V_{ENT}}
+\end{equation}
+\par Donde:
+\begin{itemize}
+    \item $V_{SAL}$ es la amplitud pico a pico de la señal de salida.
+    \item $V_{ENT}$ es la amplitud pico a pico de la señal de entrada.
+\end{itemize}
+\par En esta configuración, dado que el circuito actúa como un seguidor de fuente, la ganancia típica es ligeramente menor a 1 debido a la resistencia interna del transistor [1]:
+\begin{equation}
+A_v \approx \frac{g_m R_L}{1 + g_m R_S}
+\end{equation}
+\par Donde:
+\begin{itemize}
+    \item $g_m$ es la transconductancia del JFET.
+    \item $R_L$ es la carga conectada en la salida (normalmente igual a $R_L$ externo o equivalente).
+    \item $R_S$ es la resistencia de fuente.
+\end{itemize}
+\\
+\newline
+\textbf{Diferencia de fase entre señales}
+\par La diferencia de fase entre la señal de entrada y la salida puede observarse utilizando un osciloscopio en modo XY o superponiendo ambas señales en modo tiempo. En el caso del amplificador en drenador común, la salida está prácticamente en fase con la entrada, aunque puede haber un ligero retardo de fase debido a las capacidades parásitas [1].
+\par Para calcular la diferencia de fase ($\phi$) se puede usar:
+\begin{equation}
+\phi = \frac{\Delta t}{T} \times 360^\circ
+\end{equation}
+\par Donde:
+\begin{itemize}
+    \item $\Delta t$ es la diferencia de tiempo entre los picos (o cruces por cero) de las señales de entrada y salida.
+    \item $T$ es el período de la señal.
+\end{itemize}
+\par La diferencia de fase se mide en grados ($^\circ$), y un desfase positivo indica que la salida va retrasada con respecto a la entrada.
+\\
+\newline
+\textbf{Interpretación de diferencia de fase entre señales}
+\subsubsection*{Desfase de 0°}
+\par Cuando se dice que hay un desfase de 0°, significa que la señal de salida está en fase con la señal de entrada. Es decir, ambas señales alcanzan sus valores máximos, mínimos y puntos de cruce por cero al mismo tiempo [1]. Esto es típico en configuraciones como el amplificador en drenador común (seguidor de fuente).
+\begin{itemize}
+    \item La forma de onda de salida es prácticamente una copia atenuada de la entrada.
+    \item No hay inversión de señal.
+\end{itemize}
+\subsubsection*{Desfase de 180°}
+\par Un desfase de 180° indica que la señal de salida está invertida respecto a la entrada. Cuando la entrada está en su punto máximo, la salida está en su punto mínimo, y viceversa [1].
+\begin{itemize}
+    \item Es característico de configuraciones como el amplificador en fuente común.
+    \item La salida es una imagen especular (invertida verticalmente) de la entrada.
+\end{itemize}
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+\begin{thebibliography}{1}
+\bibitem{alexander}
+C. K. Alexander and M. N. O. Sadiku, \textit{Fundamentos de circuitos eléctricos}. México ; Madrid Etc.: McGraw-Hill, 2018.
+\end{thebibliography}
 \end{document}
 
 
